@@ -36,4 +36,8 @@ class Category extends Model implements HasMedia
     public function getPhotoAttribute(){
         return $this->getMedia('photo')->first();
     }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 } 

@@ -16,7 +16,7 @@
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Slug</th>
-                                <!-- <th>Product Count</th> -->
+                                <th>Product Count</th>
                                 <th>Image</th>
                                 <th>Parent</th>
                                 <th>Action</th>
@@ -28,6 +28,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->slug }}</td>
+                                    <td>{{ $category->products_count }}</td>
                                     <td>
                                         @if($category->photo)
                                             <a href="{{ $category->photo->getUrl() }}" target="_blank">

@@ -18,10 +18,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Category</label>
-                        <select name="category_id" class="form-control">
+                        <label for="category_id">Category</label>
+                        <select class="form-control" name="category_id" id="">
                             @foreach($categories as $id => $categoryName)
                                 <option value="{{ $id }}">{{ $categoryName }}</option>
+                            @endforeach
+                        </select>   
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags">Tag</label>
+                        <select name="tags[]" class="form-control" multiple>
+                            @foreach($tags as $id => $tagName)
+                                <option value="{{ $id }}">{{ $tagName }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name("homepage");
 Route::get('/shop/{slug?}', [\App\Http\Controllers\ShopController::class, 'index'])->name("shop.index");
 Route::get('/shop/tag/{slug?}', [\App\Http\Controllers\ShopController::class, 'tag'])->name("shop.tag");
-Route::get('/product', [\App\Http\Controllers\Productcontroller::class, 'show'])->name("product.show");
+Route::get('/product/{product:slug}', [\App\Http\Controllers\ProductController::class, 'show'])->name("product.show");
 Route::resource('/cart', \App\Http\Controllers\CartController::class);
+
 Route::get('/order/checkout', [\App\Http\Controllers\OrderController::class, 'process'])->name("checkout.process");
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -39,3 +40,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//route react 
+
+Route::get('/products', [\App\Http\Controllers\HomeController::class, 'get_products']);
+Route::post('/carts', [\App\Http\Controllers\CartController::class, 'store']);
+Route::get('/carts', [\App\Http\Controllers\CartController::class, 'showCart']);

@@ -32,7 +32,8 @@ class ProductRequest extends FormRequest
                 'quantity' => ['required', 'numeric'],
                 'weight' => ['required', 'numeric'],
                 'description' => ['required'],
-                'details' => ['required']
+                'details' => ['required'],
+                'tags' => ['required']
         ];
         case "PUT":
         case "PATCH":
@@ -43,7 +44,8 @@ class ProductRequest extends FormRequest
                 'quantity' => ['required', 'numeric'],
                 'weight' => ['required', 'numeric'],
                 'description' => ['required'],
-                'details' => ['required']
+                'details' => ['required'],
+                'tags' => ['required']
             ];
             default: break;
         }

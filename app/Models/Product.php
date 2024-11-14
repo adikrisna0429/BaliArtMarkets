@@ -24,7 +24,7 @@ class Product extends Model implements HasMedia
                 'source' => 'name',
                 'onUpdate' => true,
             ]
-        ];
+        ]; 
     }
 
     public function category(){
@@ -33,5 +33,9 @@ class Product extends Model implements HasMedia
 
     public function getGalleryAttribute(){
         return $this->getMedia('gallery');
+    }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 }
