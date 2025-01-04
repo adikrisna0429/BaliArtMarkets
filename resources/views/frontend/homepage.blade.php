@@ -1,0 +1,78 @@
+@extends('layouts.frontend')
+
+@section('content')
+
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                @foreach ($menu_categories as $menu_category)
+    <div class="col-lg-3">
+        <div
+        class="categories__item set-bg"
+        data-setbg="{{ $menu_category->photo ? $menu_category->photo->getUrl() : 'default-image-url' }}">
+            <h5><a href="{{ route('shop.index', $menu_category->slug) }}">{{ $menu_category->name}}</a></h5>
+        </div>
+    </div>
+@endforeach
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section End -->
+
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Featured Product</h2>
+                    </div>
+                    <!-- <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".oranges">Oranges</li>
+                            <li data-filter=".fresh-meat">Fresh Meat</li>
+                            <li data-filter=".vegetables">Vegetables</li>
+                            <li data-filter=".fastfood">Fastfood</li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row featured__filter" id="product-list">
+
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
+
+    <!-- Banner Begin -->
+    <div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <!-- Banner 1 -->
+                <a href="{{ route('shop.index') }}" class="banner__pic-link">
+                    <div class="banner__pic">
+                        <img src="{{ asset('frontend/img/banner/banner-1.png')}}" alt="Banner 1">
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <!-- Banner 2 -->
+                <a href="{{ route('shop.index') }}" class="banner__pic-link">
+                    <div class="banner__pic">
+                        <img src="{{ asset('frontend/img/banner/banner-2.png')}}" alt="Banner 2">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Banner End -->
+     
+@endsection
